@@ -1,0 +1,1 @@
+DELETE FROM GameCapabilities WHERE GameCapability = 'CAPABILITY_WORLD_CONGRESS' ;

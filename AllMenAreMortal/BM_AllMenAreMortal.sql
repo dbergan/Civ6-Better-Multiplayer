@@ -1,0 +1,1 @@
+UPDATE Units SET CanRetreatWhenCaptured = 0 WHERE CanRetreatWhenCaptured != 0 ;
