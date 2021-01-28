@@ -40,10 +40,12 @@ end
 
 function HideRevealedBattleNotificationTiles(PlayerID)
 	local Vis = PlayersVisibility[PlayerID]
-	for _, value in pairs(BM_RevealedPlots[PlayerID]) do
-		local TempPlot = Map.GetPlotByIndex(value)
-		if Vis:IsVisible(TempPlot:GetX(), TempPlot:GetY()) == true then
-			Vis:ChangeVisibilityCount(value, -1)
+	if BM_RevealedPlots[PlayerID] ~= nil then
+		for _, value in pairs(BM_RevealedPlots[PlayerID]) do
+			local TempPlot = Map.GetPlotByIndex(value)
+			if Vis:IsVisible(TempPlot:GetX(), TempPlot:GetY()) == true then
+				Vis:ChangeVisibilityCount(value, -1)
+			end
 		end
 	end
 	BM_RevealedPlots[PlayerID] = {}
@@ -53,6 +55,5 @@ function Initialize()
 	-- exposing function to BattleNotifications.lua
 	DB_BM.ChangeVisibility = ChangeVisibility
 	DB_BM.HideRevealedBattleNotificationTiles = HideRevealedBattleNotificationTiles
-print("BM_BattleNotifications_Gameplay.lua - init")
 end
 Initialize()

@@ -211,9 +211,13 @@ function BM_Combat_Summary(CombatResult)
 	a = a .. BM_CombatantShortName(CombatResult, CombatResultParameters.ATTACKER)
 	a = a .. "[ENDCOLOR]"
 
+	local EndHP = CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.MAX_HIT_POINTS] - CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.FINAL_DAMAGE_TO]
+
 	-- "attacked"
 	if CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].type == 3 and CombatResult[CombatResultParameters.ATTACKER_ADVANCES] then
 		a = a .. " captured "
+	elseif CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].type == 1 and EndHP <= 0 then
+		a = a .. " killed "
 	else
 		a = a .. " attacked "
 	end
@@ -386,14 +390,10 @@ function BM_Combat(CombatResult)
 	notificationData[ParameterTypes.MESSAGE] = BM_Combat_Summary(CombatResult)
 	notificationData[ParameterTypes.SUMMARY] = BM_AttackerDetails(CombatResult) .. "[NEWLINE][NEWLINE]" .. BM_DefenderDetails(CombatResult)
 
-	NotificationManager.SendNotification(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.ID].player, NotificationTypes.USER_DEFINED_5, notificationData)	-- USER_DEFINED_5 for attacker reports
-	if CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].type == 3 and CombatResult[CombatResultParameters.ATTACKER_ADVANCES] then
-		NotificationManager.SendNotification(CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].player, NotificationTypes.USER_DEFINED_7, notificationData)	-- USER_DEFINED_7 for city capture reports (gives vision)
-	else
-		NotificationManager.SendNotification(CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].player, NotificationTypes.USER_DEFINED_6, notificationData)	-- USER_DEFINED_6 for defender reports (gives vision)
-	end
+	NotificationManager.SendNotification(CombatResult[CombatResultParameters.ATTACKER][CombatResultParameters.ID].player, NotificationTypes.USER_DEFINED_3, notificationData)	-- USER_DEFINED_3 for attacker reports
+	NotificationManager.SendNotification(CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].player, BM_DefenderNotificationType(CombatResult), notificationData)
 
-	-- drop pins on attacker tiles (for defender to see)
+	-- drop pins on attacker tile (for defender to see)
 
 	-- BM_Combat_DebugPrintNotificationData(notificationData)
 	-- BM_Combat_DebugPrintAllCombatResult(CombatResult)
@@ -513,6 +513,24 @@ function BM_Combat_WMD(CombatResult)
 
 end
 
+function BM_DefenderNotificationType(CombatResult)
+	local EndHP = CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.MAX_HIT_POINTS] - CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.FINAL_DAMAGE_TO]
+
+	if CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].type == 3 and CombatResult[CombatResultParameters.ATTACKER_ADVANCES] then
+		-- if city, and attacker advanced
+		return NotificationTypes.USER_DEFINED_7
+	elseif CombatResult[CombatResultParameters.DEFENDER][CombatResultParameters.ID].type == 3 then
+		-- if city
+		return NotificationTypes.USER_DEFINED_5
+	elseif EndHP <= 0 then
+		-- not city (must be unit), no HP left
+		return NotificationTypes.USER_DEFINED_6
+	else
+		-- not city, has HP
+		return NotificationTypes.USER_DEFINED_4
+	end 
+end
+
 -- Add vision with NOTIFICATION_USER_DEFINED_6, 7, 8, and 9
 function BM_OnNotificationAdded(playerID, notificationID) 
 	if playerID == nil or Game == nil then return end
@@ -552,7 +570,6 @@ function Initialize()
 	Events.Combat.Add(BM_Combat)
 	Events.NotificationAdded.Add(BM_OnNotificationAdded)
 	Events.LocalPlayerTurnEnd.Add(BM_OnLocalPlayerTurnEnd)
-	print("BM_BattleNotifications.lua - init")
 end
 
 Initialize()
