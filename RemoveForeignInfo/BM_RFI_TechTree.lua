@@ -1044,8 +1044,12 @@ function View( playerTechData:table )
 			local markerX		:number = MARKER_OFFSET_START + (markerPercent * m_scrollWidth );
 			instance.Top:SetOffsetVal(markerX ,0);
 -- DB
-instance.Marker:SetHide(true);
-instance.TurnGrid:SetHide(true);
+			if GameConfiguration.GetValue("YT_LEARN_FROM_OTHER_CIVS") == nil or GameConfiguration.GetValue("YT_LEARN_FROM_OTHER_CIVS") == false then
+				if GameConfiguration.GetValue("BM_REMOVE_FOREIGN_INFO") ~= nil and GameConfiguration.GetValue("BM_REMOVE_FOREIGN_INFO") == true then
+					instance.Marker:SetHide(true)
+					instance.TurnGrid:SetHide(true)
+				end
+			end
 -- /DB
 		end
 	end
@@ -1676,8 +1680,12 @@ end
 --					nil will reset the filters to none.
 -- ===========================================================================
 function OnFilterClicked( filter )			
-	m_kCurrentData[DATA_FIELD_UIOPTIONS].filter = filter;
-	View( m_kCurrentData )
+-- DB
+	if GameConfiguration.GetValue("GAMEMODE_TREE_RANDOMIZER") == nil or GameConfiguration.GetValue("GAMEMODE_TREE_RANDOMIZER") == false then
+		m_kCurrentData[DATA_FIELD_UIOPTIONS].filter = filter;
+		View( m_kCurrentData )
+	end
+-- /DB
 end
 
 -- ===========================================================================
