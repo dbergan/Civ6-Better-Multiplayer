@@ -5,7 +5,7 @@
     <Name>DB [ICON_Position]Better Multiplayer[ICON_Position]</Name>
     <Guid>03219838-c343-451a-8b9e-df67c670e76d</Guid>
     <ProjectGuid>de4365f3-22b7-4062-a50b-93f966b5e9ce</ProjectGuid>
-    <ModVersion>5</ModVersion>
+    <ModVersion>6</ModVersion>
     <Teaser>All options also work in single-player</Teaser>
     <Description>Several game setup options that make for a better multiplayer experience:[NEWLINE][ICON_Bullet]Better Balanced Starts[NEWLINE][ICON_Bullet]Battle Notifications[NEWLINE][ICON_Bullet]Remove Foreign Info[NEWLINE][ICON_Bullet]Double Spy Capacity[NEWLINE][ICON_Bullet]Military Alliances Only Share Vision[NEWLINE][ICON_Bullet]All Great Men Are Mortal[NEWLINE][ICON_Bullet]Remove Civ &amp; Leader Traits[NEWLINE][ICON_Bullet]Remove World Congress[NEWLINE][ICON_Bullet]Remove Emergencies[NEWLINE][ICON_Bullet]Remove Dark &amp; Golden Ages[NEWLINE][ICON_Bullet]Remove 1-Turn Policies[NEWLINE][ICON_Bullet]Reveal Strategic Resources</Description>
     <Authors>DB</Authors>
