@@ -444,9 +444,9 @@ function BM_Combat_WMD(CombatResult)
 	local AllPlayers = PlayerManager.GetAliveMajors()
 	for _, Player in pairs(AllPlayers) do
 		if CombatResult[CombatResultParameters.WMD_TYPE] == 0 then
-			NotificationManager.SendNotification(Player:GetID(), NotificationTypes.USER_DEFINED_8, notificationData)	-- USER_DEFINED_8 for nuke reports
+			NotificationManager.SendNotification(Player:GetID(), NotificationTypes.USER_DEFINED_1, notificationData)	-- USER_DEFINED_1 for nuke reports
 		else
-			NotificationManager.SendNotification(Player:GetID(), NotificationTypes.USER_DEFINED_9, notificationData)	-- USER_DEFINED_9 for thermonuke reports
+			NotificationManager.SendNotification(Player:GetID(), NotificationTypes.USER_DEFINED_2, notificationData)	-- USER_DEFINED_2 for thermonuke reports
 		end
 	end
 
@@ -531,7 +531,7 @@ function BM_DefenderNotificationType(CombatResult)
 	end 
 end
 
--- Add vision with NOTIFICATION_USER_DEFINED_6, 7, 8, and 9
+-- Add vision with NOTIFICATION_USER_DEFINED_1, 2, 6, and 7 
 function BM_OnNotificationAdded(playerID, notificationID) 
 	if playerID == nil or Game == nil then return end
 
@@ -550,14 +550,14 @@ function BM_OnNotificationAdded(playerID, notificationID)
 	if (not pNotification:IsLocationValid()) then return end
 
 	local x, y = pNotification:GetLocation()
-	if pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_6" then
+	if pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_1" then
+		DB_BM.ChangeVisibility(playerID, x, y, BM_NuclearRadius, true)
+	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_2" then
+		DB_BM.ChangeVisibility(playerID, x, y, BM_ThermonuclearRadius, true)
+	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_6" then
 		DB_BM.ChangeVisibility(playerID, x, y, BM_DefenderRadius, true)
 	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_7" then
 		DB_BM.ChangeVisibility(playerID, x, y, BM_CityCaptureRadius, true)
-	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_8" then
-		DB_BM.ChangeVisibility(playerID, x, y, BM_NuclearRadius, true)
-	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_9" then
-		DB_BM.ChangeVisibility(playerID, x, y, BM_ThermonuclearRadius, true)
 	end
 	
 end
