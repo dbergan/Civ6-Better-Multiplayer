@@ -349,6 +349,7 @@
 	</Instance>
 
 	<!-- Markers representing players that are placed on the timeline (player: 122,42) -->
+<!-- DB - Hide Player Markers in Scrollbar [BM: Remove Foreign Information] -->
 	<Instance Name="PlayerMarkerInstance" Size="0,0" Hidden="1">
 		<Container ID="Top" Size="0,0" Hidden="1">
 			<Grid ID="TurnGrid" Anchor="C,T" Texture="Tree_TimeTurnLabel" SliceCorner="10,10" SliceSize="2,1" SliceTextureSize="21,22" Offset="-99999,-99999" Size="0,0" Hidden="1">
@@ -361,5 +362,6 @@
 			</Image>
 		</Container>
 	</Instance>
+<!-- /DB -->
 
 </Context>

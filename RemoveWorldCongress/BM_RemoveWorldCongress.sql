@@ -1,1 +1,2 @@
 DELETE FROM GameCapabilities WHERE GameCapability = 'CAPABILITY_WORLD_CONGRESS' ;
+DELETE FROM GoodyHuts WHERE GoodyHutType = 'GOODYHUT_DIPLOMACY' ;

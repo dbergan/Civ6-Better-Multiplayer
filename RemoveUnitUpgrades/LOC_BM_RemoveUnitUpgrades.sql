@@ -1,0 +1,1 @@
+UPDATE LocalizedText SET Text = REPLACE(REPLACE(Text, '50', '100'), '25', '100') WHERE Tag LIKE 'LOC_ABILITY%XP_DESCRIPTION' AND Language = 'en_US' ;

@@ -1,2 +1,3 @@
-UPDATE Gossips SET VisibilityLevel = 2 WHERE VisibilityLevel < 2 ;
-UPDATE Gossips SET VisibilityLevel = 0 AND Filter = 0 WHERE GossipType = 'GOSSIP_GREATPERSON_CREATED' ;
+DELETE FROM GameCapabilities WHERE GameCapability = 'CAPABILITY_DISPLAY_HUD_WORLD_RANKINGS' ;
+DELETE FROM GameCapabilities WHERE GameCapability = 'CAPABILITY_LENS_GOVERNMENT' ;
+DELETE FROM Notifications WHERE NotificationType = 'NOTIFICATION_WONDER_COMPLETED' ;
