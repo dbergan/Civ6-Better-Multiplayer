@@ -78,15 +78,20 @@ ChangeableAfterGameStart, ChangeableAfterPlayByCloudMatchCreate, SortIndex) VALU
 1, 1, 1, 1, 1, 
 0, 0, 314),
 
+('BM_TREES_HIDE_UNITS', 'LOC_BM_TREES_HIDE_UNITS_NAME', 'LOC_BM_TREES_HIDE_UNITS_DESC', 
+'bool', 0, 'Game', 'BM_TREES_HIDE_UNITS', 'AdvancedOptions', 1, 0, 
+1, 1, 1, 1, 1, 
+0, 0, 315),
+
 ('BM_DIFFICULTY_COMBAT_STRENGTH', 'LOC_BM_DIFFICULTY_COMBAT_STRENGTH_NAME', 'LOC_BM_DIFFICULTY_COMBAT_STRENGTH_DESC', 
 'bool', 0, 'Game', 'BM_DIFFICULTY_COMBAT_STRENGTH', 'AdvancedOptions', 1, 0, 
 1, 1, 1, 1, 1, 
-0, 0, 315),
+0, 0, 316),
 
 ('BM_REVEAL_STRATEGIC_RESOURCES', 'LOC_BM_REVEAL_STRATEGIC_RESOURCES_NAME', 'LOC_BM_REVEAL_STRATEGIC_RESOURCES_DESC', 
 'bool', 0, 'Game', 'BM_REVEAL_STRATEGIC_RESOURCES', 'AdvancedOptions', 1, 0, 
 1, 1, 1, 1, 1, 
-0, 0, 316),
+0, 0, 317),
 
 ('DB_FOOTER', 'LOC_DB_FOOTER_NAME', 'LOC_DB_FOOTER_DESC', 
 'EmptyDomain', 1, 'Game', 'DB_FOOTER', 'AdvancedOptions', 1, 0, 

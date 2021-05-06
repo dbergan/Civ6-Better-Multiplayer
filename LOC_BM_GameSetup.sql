@@ -51,6 +51,9 @@ INSERT OR REPLACE INTO LocalizedText
 ('LOC_BM_REMOVE_UNIT_UPGRADES_NAME', 'Remove Unit Upgrades', 'en_US'),
 ('LOC_BM_REMOVE_UNIT_UPGRADES_DESC', 'Units can no longer upgrade, so that ancient era units with promotions won''t snowball into unstoppable world-dominating monsters with no counter.{LOC_BM_MOD_NOTE}', 'en_US'),
 
+('LOC_BM_TREES_HIDE_UNITS_NAME', 'Trees Hide Units', 'en_US'),
+('LOC_BM_TREES_HIDE_UNITS_DESC', 'Ever wonder why an archer from two tiles away can shoot your scout while he''s hiding in a forest?[NEWLINE][NEWLINE]With this option, any unit on a woods or rainforest tile automatically is hidden (like a privateer)... meaning they are only visible to enemy units in adjacent tiles or units that have an ability to see hidden units.[NEWLINE][NEWLINE]Furthermore, any unit on a city center or encampment tile can now see hidden units. (Otherwise an archer in a forest two tiles away could shoot a city, and the city''s archer couldn''t shoot back.){LOC_BM_MOD_NOTE}', 'en_US'),
+
 ('LOC_BM_DIFFICULTY_COMBAT_STRENGTH_NAME', 'Difficulty = Combat Strength', 'en_US'),
 ('LOC_BM_DIFFICULTY_COMBAT_STRENGTH_DESC', 'Human players'' units get a built-in [ICON_Strength] Combat Strength bonus based on the difficulty setting they choose at the beginning of the game. Useful for handicapping multiplayer games that involve players of different abilities.[NEWLINE][NEWLINE]The [ICON_Strength] Combat Strength values are always listed on the difficulty selection boxes during game setup, but they will only be in effect in the game when this option is selected.{LOC_BM_MOD_NOTE}', 'en_US'),
 

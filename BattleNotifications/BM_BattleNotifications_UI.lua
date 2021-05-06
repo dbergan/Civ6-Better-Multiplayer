@@ -5,7 +5,6 @@ local DB_BM = ExposedMembers.DB_BM;
 -- Global constants that might want to be edited
 -- Radius of 1 = the unit and each tile around it, 2 = each tile around the tiles in 1, etc.
 BM_DefenderRadius = 1
-BM_CityCaptureRadius = 2
 BM_NuclearRadius = 1
 BM_ThermonuclearRadius = 2
 BM_EnemyRGB = "255,47,47"
@@ -593,7 +592,7 @@ function BM_DefenderNotificationType(CombatResult)
 	end 
 end
 
--- Add vision with NOTIFICATION_USER_DEFINED_1, 2, 6, and 7 
+-- Add vision with NOTIFICATION_USER_DEFINED_1, 2, and 6
 function BM_OnNotificationAdded(playerID, notificationID) 
 	if not DB_BM.ChangeVisibility then return end
 
@@ -620,8 +619,6 @@ function BM_OnNotificationAdded(playerID, notificationID)
 		DB_BM.ChangeVisibility(playerID, x, y, BM_ThermonuclearRadius, true)
 	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_6" then
 		DB_BM.ChangeVisibility(playerID, x, y, BM_DefenderRadius, true)
-	elseif pNotification:GetTypeName() == "NOTIFICATION_USER_DEFINED_7" then
-		DB_BM.ChangeVisibility(playerID, x, y, BM_CityCaptureRadius, true)
 	end
 	
 end

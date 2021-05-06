@@ -1,6 +1,6 @@
-UPDATE LocalizedText SET Text = Text || '[NEWLINE][NEWLINE]Other domestic cities within 9 tiles gain 1 loyalty per turn and foreign cities within 9 tiles lose 1 loyalty per turn. [COLOR_RED][MOD][ENDCOLOR]' WHERE Language = 'en_US' AND Tag = 'LOC_BUILDING_MONUMENT_EXPANSION1_DESCRIPTION' ;
+UPDATE LocalizedText SET Text = Text || '[NEWLINE][NEWLINE]Other domestic cities within 9 tiles gain 1 loyalty per turn and foreign cities within 9 tiles lose 1 loyalty per turn.{LOC_MOD_LABEL}' WHERE Language = 'en_US' AND Tag = 'LOC_BUILDING_MONUMENT_EXPANSION1_DESCRIPTION' ;
 
-UPDATE LocalizedText SET Text = Text || '[NEWLINE][NEWLINE]Domestic cities within 9 tiles gain 1 loyalty per turn and foreign cities within 9 tiles lose 1 loyalty per turn. [COLOR_RED][MOD][ENDCOLOR]' WHERE Language = 'en_US' AND Tag IN 
+UPDATE LocalizedText SET Text = Text || '[NEWLINE][NEWLINE]Domestic cities within 9 tiles gain 1 loyalty per turn and foreign cities within 9 tiles lose 1 loyalty per turn.{LOC_MOD_LABEL}' WHERE Language = 'en_US' AND Tag IN 
 (
 'LOC_BUILDING_ALHAMBRA_DESCRIPTION',
 'LOC_BUILDING_AMPHITHEATER_DESCRIPTION',
